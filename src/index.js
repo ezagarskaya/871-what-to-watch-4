@@ -4,9 +4,10 @@ import App from './components/app/app.jsx';
 
 const init = () => {
   const film = {
-    name: `The Grand Budapest Hotel`,
+    name: [`The Grand Budapest Hotel`, `Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`],
     genre: `Drama`,
     date: 2014,
+    img: [`img/bohemian-rhapsody.jpg`],
   };
 
   ReactDOM.render(
