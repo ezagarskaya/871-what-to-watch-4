@@ -3,9 +3,9 @@ import Main from '../main/main.jsx';
 
 const App = (props) => {
   // eslint-disable-next-line react/prop-types
-  const {name, genre, date} = props;
+  const {name, genre, date, img} = props;
   return (
-    <Main name={name} genre={genre} date={date}></Main>
+    <Main name={name} genre={genre} date={date} img={img}></Main>
   );
 };
 
