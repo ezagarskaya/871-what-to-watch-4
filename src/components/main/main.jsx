@@ -1,14 +1,13 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
+import MovieList from '../movie-list/movie-list.jsx';
 
 const Main = (props) => {
-  const {name, genre, date} = props;
-
   return (
     <div>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt={name} />
+          <img src="img/bg-the-grand-budapest-hotel.jpg" alt={props.films[0].name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -32,14 +31,14 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt={name[0]} width="218" height="327" />
+              <img src="img/the-grand-budapest-hotel-poster.jpg" alt={props.films[0].name} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{name[0]}</h2>
+              <h2 className="movie-card__title">{props.films[0].name}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{genre}</span>
-                <span className="movie-card__year">{date}</span>
+                <span className="movie-card__genre">{props.films[0].genre}</span>
+                <span className="movie-card__year">{props.films[0].date}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -97,20 +96,7 @@ const Main = (props) => {
               <a href="#" className="catalog__genres-link">Thrillers</a>
             </li>
           </ul>
-          {
-            name.map((it, i) =>
-              <div key={it + i} className="catalog__movies-list">
-                <article className="small-movie-card catalog__movies-card">
-                  <div className="small-movie-card__image">
-                    <img src={`img/bohemian-rhapsody.jpg`} alt={it} width="280" height="175" />
-                  </div>
-                  <h3 className="small-movie-card__title">
-                    <a className="small-movie-card__link" href="movie-page.html">{it}</a>
-                  </h3>
-                </article>
-              </div>
-            )
-          }
+          <MovieList films={props.films}/>
         </section>
 
         <footer className="page-footer">
@@ -129,12 +115,6 @@ const Main = (props) => {
       </div>
     </div>
   );
-};
-
-Main.propTypes = {
-  name: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired
 };
 
 export default Main;
