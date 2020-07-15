@@ -1,19 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from './components/app/app.jsx';
+import films from './mocs/films.js';
 
 const init = () => {
-  const film = {
-    name: [`The Grand Budapest Hotel`, `Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`],
-    genre: `Drama`,
-    date: 2014,
-    img: [`img/bohemian-rhapsody.jpg`],
-  };
 
   ReactDOM.render(
-      <App name={film.name}
-        genre={film.genre}
-        date={film.date}></App>,
+      <App films={films}></App>,
       document.getElementById(`root`)
   );
 };
