@@ -3,11 +3,12 @@ import React from 'react';
 import MovieList from '../movie-list/movie-list.jsx';
 
 const Main = (props) => {
+  const {films, onPosterClick, onTitleClick} = props;
   return (
     <div>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt={props.films[0].name} />
+          <img src="img/bg-the-grand-budapest-hotel.jpg" alt={films[0].name} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -31,14 +32,14 @@ const Main = (props) => {
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt={props.films[0].name} width="218" height="327" />
+              <img src="img/the-grand-budapest-hotel-poster.jpg" alt={films[0].name} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
-              <h2 className="movie-card__title">{props.films[0].name}</h2>
+              <h2 className="movie-card__title">{films[0].name}</h2>
               <p className="movie-card__meta">
-                <span className="movie-card__genre">{props.films[0].genre}</span>
-                <span className="movie-card__year">{props.films[0].date}</span>
+                <span className="movie-card__genre">{films[0].genre}</span>
+                <span className="movie-card__year">{films[0].date}</span>
               </p>
 
               <div className="movie-card__buttons">
@@ -96,7 +97,9 @@ const Main = (props) => {
               <a href="#" className="catalog__genres-link">Thrillers</a>
             </li>
           </ul>
-          <MovieList films={props.films}/>
+          <MovieList films={films}
+            onTitleClick={onTitleClick}
+            onPosterClick={onPosterClick}/>
         </section>
 
         <footer className="page-footer">
